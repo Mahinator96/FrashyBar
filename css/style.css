@@ -1,0 +1,114 @@
+/* VAR */
+:root {
+	--black: #000;
+	--white: #fff;
+	--red: #F44;
+	--liteRed: #FF6767;
+	--liteGray: #F6F6F6;
+	--bgPink: #F8E8E2;
+	--gray: #C1C1C1;
+	--liteBrown: #D5B4A8;
+	--green: #52E36A;
+}
+
+/* GLOBAL */
+html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+body {
+	font-family: Mulish, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 110%;
+	color: var(--black);
+	min-width: 320px;
+	min-height: 100vh;
+	background-color: var(--bgPink);
+	background-image: url('../img/bg.svg');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: contain;
+}
+
+/* HEADER */
+.header__logo {
+
+}
+.header__btn-order {
+
+}
+.header__btn {
+
+}
+
+
+/* HERO */
+.hero__title {
+
+}
+.hero__cups {
+
+}
+.hero__cup {
+
+}
+.hero__cup_pink {
+
+}
+.hero__img {
+
+}
+.hero__cup_orange {
+
+}
+.hero__cup_green {
+
+}
+.goods__title {
+
+}
+.goods__list {
+
+}
+.goods__item {
+
+}
+.goods__card {
+
+}
+.cocktail__text {
+
+}
+.cocktail__title {
+
+}
+.cocktail__price {
+
+}
+.cocktail__size {
+
+}
+.cocktail__btn {
+
+}
+.footer__logo {
+
+}
+.footer__copyright {
+
+}
+.footer__developer {
+
+}
+.footer__developer-item {
+
+}
+.footer__developer-link {
+
+}
+	
