@@ -425,6 +425,9 @@ body {
 	.footer__developer-item {
 		margin-bottom: 6px;
 	}
+	.footer__developer {
+		justify-self: start;
+	}
 }
 
 @media (max-width: 550px) {
