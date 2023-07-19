@@ -354,7 +354,7 @@ body {
 
 	/* HEADER */
 	.header {
-		padding: 31px;
+		padding: 31px 0;
 	}
 	.header__logo {
 		width: 120px;
