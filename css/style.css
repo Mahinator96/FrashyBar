@@ -219,6 +219,124 @@ body {
 }
 
 
+/* MODAL */
+.modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	padding: 20px;
+	overflow-y: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+.modal__main {
+	margin: auto;
+	cursor: default;
+	width: 100%;
+	max-width: 780px;
+}
+
+/* MODAL_ORDER */
+.order {
+	padding: 60px 40px;
+	background: var(--bgPink);
+	border-radius: 24px;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.order__title {
+	font-size: 44px;
+	font-weight: 900;
+	margin-bottom: 40px;
+}
+.order__title sup  {
+	color: var(--red);
+}
+.order__list {
+	margin-bottom: 40px;
+}
+.order__item {
+	display: grid;
+	grid-template-columns: 70px 1fr min-content;
+	gap: 12px;
+	grid-template-areas: 
+		"image info delete"
+		"image info price";
+	padding: 16px 0;
+	border-top: 1px solid #fff;
+}
+.order__item:last-child {
+	border-bottom: 1px solid #fff;
+}
+.order__img {
+	max-width: 100%;
+	grid-area: image;
+}
+.order__info {
+	grid-area: info;
+}
+.order__name {
+	font-size: inherit;
+	font-weight: 400;
+	margin-bottom: 8px;
+}
+.order__topping-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.order__topping-item {
+	color: var(--liteBrown);
+}
+.order__item-delete {
+	grid-area: delete;
+	justify-self: end;
+	width: 24px;
+	height: 24px;
+	background-image: url('../img/delete.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+.order__item-price {
+	grid-area: price;
+	justify-self: end;
+	align-self: end;
+}
+.order__price {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+.order__price-title {
+	font-weight: 600;
+}
+.order__price-total {
+	font-weight: 600;
+	color: var(--red);
+}
+.order__form {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px 20px;
+}
+.order__label {
+	width: 100%;
+}
+.order__input {
+	width: 100%;
+	height: 44px;	
+	padding: 0 16px;
+	background-color: var(--white);
+	border-radius: 8px;
+}
+.order__input::placeholder {
+	color: var(--gray);
+}
+.order__submit {
+	justify-self: end;
+	grid-column: span 2;
+}
+
 /* MEDIA */
 @media (max-width: 1240px) {
 	/* GLOBAL */
