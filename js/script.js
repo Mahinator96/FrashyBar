@@ -1,4 +1,17 @@
-const API_URL = "https://dear-artistic-dingo.glitch.me/";
+const API_URL = "https://deciduous-warm-gauge.glitch.me/";
+
+const price = {
+	Клубника: 60,
+	Банан: 50,
+	Манго: 70,
+	Киви: 55,
+	Маракуйя: 90, 
+	Яблоко: 45,
+	Мята: 50,
+	Лёд: 10,
+	Биоразлагаемый: 20,
+	Пластиковый: 0,
+}
 
 const getData = async () => {
 	const response = await fetch(`${API_URL}api/goods`);
@@ -21,7 +34,7 @@ const createCard = (item) => {
 				<p class="cocktail__price text-red">${item.price}&nbsp;₽</p>
 				<p class="cocktail__size">${item.size}</p>
 			</div>
-			<button class="btn cocktail__btn" data-id="${item.id}">Добавить</button>
+			<button class="btn cocktail__btn cocktail__btn_add" data-id="${item.id}">Добавить</button>
 		</div>
 	`;
 
@@ -52,7 +65,7 @@ const scrollService = {
 }
 
 const modalController = ({modal, btnOpen, time = 300}) => {
-	const buttonElem = document.querySelector(btnOpen);
+	const buttonElems = document.querySelectorAll(btnOpen);
 	const modalElem = document.querySelector(modal);
 
 	modalElem.style.cssText = 
@@ -86,11 +99,76 @@ const modalController = ({modal, btnOpen, time = 300}) => {
 		window.addEventListener('keydown', closeModal);
 		scrollService.disabledScroll();
 	}
+	buttonElems.forEach(buttonElem => {
+		buttonElem.addEventListener('click', openModal);
+	})
 	
-	buttonElem.addEventListener('click', openModal);
 	modalElem.addEventListener('click', closeModal);
 
 	return {openModal, closeModal}
+}
+
+const getFormData = (form) => {
+	const formData = new FormData(form);
+	const data = {};
+	
+	for (const [name, value] of (formData.entries())) {
+		if (data[name]) {
+			if (!Array.isArray(data[name])) {
+				data[name] = [data[name]];
+			}
+
+			data[name].push(value);
+		} else {
+			data[name] = value;
+		}
+	}
+
+	return data;
+}
+
+const calculateTotalPrice = (form, startPrice) => {
+	let totalPrice = startPrice;
+
+	const data = getFormData(form);
+	console.log(data);
+
+	if (Array.isArray(data.ingredients)) {
+		data.ingredients.forEach(item => {
+			totalPrice += price[item] || 0;
+		})
+	} else {
+		totalPrice += price[data.ingredients] || 0;
+	}
+
+	if (Array.isArray(data.topping)) {
+		data.topping.forEach(item => {
+			totalPrice += price[item] || 0;
+		})
+	} else {
+		totalPrice += price[data.topping] || 0;
+	}
+
+	totalPrice += price[data.cup] || 0;
+	console.log(totalPrice);
+
+	return totalPrice;
+}
+
+const calculateMakeYourOwn = () => {
+	const formMakeOwn = document.querySelector('.make__form_make-yuor-own');
+	const makeInputPrice = formMakeOwn.querySelector('.make__input-price');
+	const makeTotalPrice = formMakeOwn.querySelector('.make__total-price');
+
+	const handlerChange = () => {
+		const totalPrice = calculateTotalPrice(formMakeOwn, 150);
+		
+		makeInputPrice.value = totalPrice;
+		makeTotalPrice.textContent = `${totalPrice} ₽`;
+	}
+
+	formMakeOwn.addEventListener('change', handlerChange);
+	handlerChange();
 }
 
 const init = async () => {
@@ -98,8 +176,11 @@ const init = async () => {
 		modal: '.modal_order', 
 		btnOpen: '.header__btn-order'
 	});
+	
+	calculateMakeYourOwn();
+
 	modalController({
-		modal: '.modal_make',
+		modal: '.modal_make-your-own',
 		btnOpen: '.cocktail__btn_make'
 	});
 	
@@ -115,6 +196,11 @@ const init = async () => {
 	})
 
 	goodsListElem.append(...cardsCocktail);
+
+	modalController({
+		modal: ".modal_add",
+		btnOpen: ".cocktail__btn_add"
+	})
 }
 
 init()
