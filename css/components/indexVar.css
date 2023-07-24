@@ -1,0 +1,17 @@
+/* VAR */
+:root {
+	--black: #000;
+	--white: #fff;
+	--red: #F44;
+	--liteRed: #FF6767;
+	--shadowRed: #FA5A5A;
+	--liteGray: #F6F6F6;
+	--bgPink: #F8E8E2;
+	--gray: #C1C1C1;
+	--liteBrown: #D5B4A8;
+	--green: #52E36A;
+
+	--itemPink: #FF196C;
+	--itemOrange: #FFB72A;
+	--itemGreen: #34B905;
+}
