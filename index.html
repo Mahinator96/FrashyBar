@@ -20,6 +20,8 @@
 </head>
 	<body>
 		<header class="header">
+			<h1 class="visually-hidden">FreshyBar - Свежие коктейли</h1>
+
 			<div class="container header__container">
 				<img class="header__logo" src="img/logo.svg" width="160" height="29" alt="Логотип Freshy Bar">
 
@@ -37,7 +39,7 @@
 
 		<main>
 			<section class="hero">
-				<div class="container">
+				<div class="container hero__container">
 					<h2 class="hero__title">Выбери свой <span class="text-red">освежающий</span> фреш</h2>
 
 					<div class="hero__cups">
@@ -52,6 +54,15 @@
 						<div class="hero__cup hero__cup_green">
 							<img class="hero__img" width="210" height="461" src="img/orange.png" alt="Стакан с оранжевым коктейлем">
 						</div>
+					</div>
+
+					<div class="decor">
+						<div class="decor__img decor__img_01"></div>
+						<div class="decor__img decor__img_02"></div>
+						<div class="decor__img decor__img_03"></div>
+						<div class="decor__img decor__img_04"></div>
+						<div class="decor__img decor__img_05"></div>
+						<div class="decor__img decor__img_06"></div>
 					</div>
 				</div>
 			</section>
@@ -182,11 +193,11 @@
 							<fieldset class="make__fieldset make__fieldset_cup">
 								<legend class="make__legend">Стакан:</legend>
 								<label class="make__label radio" for="">
-									<input class="make__input" type="radio" name="cup" value="Биоразлагаемый">
+									<input class="radio__input make__input" type="radio" name="cup" value="Биоразлагаемый">
 									Биоразлагаемый <span class="make__upsale">(+20 ₽)</span>
 								</label>
 								<label class="make__label radio" for="">
-									<input class="make__input" type="radio" name="cup" value="Пластиковый" checked>
+									<input class="radio__input make__input" type="radio" name="cup" value="Пластиковый" checked>
 									Пластиковый <span class="make__upsale">(+0 ₽)</span>
 								</label>
 							</fieldset>
@@ -230,11 +241,11 @@
 							<fieldset class="make__fieldset make__fieldset_cup">
 								<legend class="make__legend">Стакан:</legend>
 								<label class="make__label radio" for="">
-									<input class="make__input" type="radio" name="cup" value="Биоразлагаемый">
+									<input class="radio__input make__input" type="radio" name="cup" value="Биоразлагаемый">
 									Биоразлагаемый <span class="make__upsale">(+20 ₽)</span>
 								</label>
 								<label class="make__label radio" for="">
-									<input class="make__input" type="radio" name="cup" value="Пластиковый" checked>
+									<input class="radio__input make__input" type="radio" name="cup" value="Пластиковый" checked>
 									Пластиковый <span class="make__upsale">(+0 ₽)</span>
 								</label>
 							</fieldset>
